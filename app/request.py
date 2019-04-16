@@ -3,15 +3,15 @@ from .models import Source,Article
 
 #Getting apiKey
 
-apiKey = None
+api_key = None
 
 #Getting the news base url
 base_url = None
 article_base_url = None
 
 def configure_request(app):
-    global apiKey,base_url,article_base_url
-    apiKey = app.config['NEWS_API_KEY']
+    global api_key,base_url,article_base_url
+    api_key = app.config["NEWS_API_KEY"]
     base_url = app.config["NEWS_API_BASE_URL"]
     article_base_url = app.config["ARTICLE_API_BASE_URL"]
 
@@ -19,7 +19,7 @@ def get_sources(source):
     """
     Function that gets the json response to our url request
     """
-    get_sources_url = base_url.format(source,apiKey)
+    get_sources_url = base_url.format(source,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -59,7 +59,7 @@ def process_results(source_list):
 
 def get_articles(id):
     '''Function thet gets the json response to our url request'''
-    get_articles_url = article_base_url.format(id,apiKey)
+    get_articles_url = article_base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
