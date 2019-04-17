@@ -9,7 +9,7 @@ class SourceTest(unittest.TestCase):
         """
         Set up method that will run before every Test
         """
-        self.new_source = Source("bloomberg","Donald Kiplagat","Test to see if Source is retrieved","TestUrl","The article itself")
+        self.new_source = Source("bloomberg","Rodney Somoire","Test to see if Source is retrieved","TestUrl","The article itself")
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source,Source))
@@ -20,7 +20,7 @@ class SourceTest(unittest.TestCase):
         test_init case to test if the object is initialized properly
         """
         self.assertEqual(self.new_source.id,"bloomberg")
-        self.assertEqual(self.new_source.name,"Donald Kiplagat")
+        self.assertEqual(self.new_source.name,"Rodney Somoire")
         self.assertEqual(self.new_source.description,"Test to see if Source is retrieved")
         self.assertEqual(self.new_source.url,"TestUrl")
         self.assertEqual(self.new_source.category,"The article itself")
